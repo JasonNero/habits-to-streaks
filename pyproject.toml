@@ -2,7 +2,7 @@
 name = "habits-to-streaks"
 version = "1.0.0"
 authors = [
-    { name = "Jason Schuehlein", email = "schuehlein@hdm-stuttgart.de" }
+    { name = "Jason Schuehlein", email = "jason@schuehlein.eu" }
 ]
 description = "Convert habit data from *Habits* app to *Streaks* app format."
 readme = "README.md"
