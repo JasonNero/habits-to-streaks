@@ -1,8 +1,22 @@
 [project]
 name = "habits-to-streaks"
 version = "0.1.0"
-author = "Jason Schuehlein"
+authors = [
+    { name = "Jason Schuehlein", email = "schuehlein@hdm-stuttgart.de" }
+]
 description = "Convert habit data from *Habits* app to *Streaks* app format."
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "ipykernel>=6.30.1",
+    "pandas>=2.3.2",
+    "tqdm>=4.67.1",
+    "typer>=0.17.4",
+]
+
+[project.scripts]
+h2s = "habits_to_streaks.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
