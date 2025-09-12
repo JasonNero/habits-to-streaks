@@ -61,9 +61,35 @@ def parse_habits_from_csv(habits_csv_path: Path) -> list[Habit]:
     return habits
 
 
+def remap_habits(
+    habits: list[Habit],
+    remap: dict = {},
+    drop_missing: bool = False,
+) -> list[Habit]:
+    """Remap the names of a list of habits, optionally dropping those without a
+    corresponding key in the remapping dictionary.
+
+    Args:
+        habits (list[Habits]): The list of habits
+        remap (dict): A dictionary mapping old to new name.
+        drop_missing (bool): Whether to drop habits whose names are not present in `remap`
+
+    Returns:
+        List[Habit]: The processed habits.
+    """
+    remapped_habits = []
+    for habit in habits:
+        if habit.name in remap:
+            habit.name = remap[habit.name]
+        elif drop_missing:
+            continue
+        remapped_habits.append(habit)
+
+    return remapped_habits
+
+
 def convert_habit_to_streak(
     habit: Habit,
-    remap: dict = None,
     icon: str = "ic_pen_quill",
     note="",
 ) -> Streak:
@@ -78,7 +104,9 @@ def convert_habit_to_streak(
     streak_entries = []
     for entry in habit.entries:
         entry_date = entry.date  # YYYYMMDD
-        entry_timestamp = f"{entry.date[:4]}-{entry.date[4:6]}-{entry.date[6:]}T12:00:00Z"
+        entry_timestamp = (
+            f"{entry.date[:4]}-{entry.date[4:6]}-{entry.date[6:]}T12:00:00Z"
+        )
         entry_timezone = "UTC"
 
         streak_entry = StreakEntry(
@@ -92,7 +120,7 @@ def convert_habit_to_streak(
         streak_entries.append(streak_entry)
 
     streak = Streak(
-        title=remap.get(habit.name, habit.name),
+        title=habit.name,
         icon=icon,
         entries=streak_entries,
     )
@@ -132,6 +160,7 @@ def convert_habits_file_to_streaks_file(
     habits_csv_path: Path,
     output_csv_path: Path,
     remap_json: Path = None,
+    skip_missing_keys: bool = False,
     icon: str = "ic_pen_quill",
     note="",
 ) -> None:
@@ -140,11 +169,11 @@ def convert_habits_file_to_streaks_file(
     Args:
         habits_csv_path (Path): Path to the habits csv export file.
         output_csv_path (Path): Path to the output streaks csv import file.
+        remap_json (Path): Path to the JSON file remapping habit names.
+        skip_missing_keys (bool): Whether to drop habits not defined in the remapping.
+        icon (str): The icon name of the streak.
+        note (str): The note for every entry.
     """
-    remap = {}
-    if remap_json:
-        with remap_json.open("r") as f:
-            remap = json.load(f)
 
     try:
         habits = parse_habits_from_csv(habits_csv_path)
@@ -152,6 +181,11 @@ def convert_habits_file_to_streaks_file(
         logger.error(f"Failed to parse habits from {habits_csv_path}: {e}")
         return
 
-    streaks = [convert_habit_to_streak(habit, remap=remap, icon=icon, note=note) for habit in habits]
+    if remap_json:
+        with remap_json.open("r") as f:
+            remap = json.load(f)
+        habits = remap_habits(habits, remap, drop_missing=skip_missing_keys)
+
+    streaks = [convert_habit_to_streak(habit, icon, note) for habit in habits]
     export_streaks_to_csv(streaks, output_csv_path)
     logger.info(f"Successfully converted {len(habits)} habits to streaks.")

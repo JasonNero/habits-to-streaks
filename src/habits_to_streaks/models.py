@@ -47,7 +47,8 @@ class Streak:
     task_id: str = field(default_factory=lambda: str(uuid4()).upper())
     title: str = ""
     icon: str = "ic_pen_quill"
-    page: int = 0  # which page the habit is displayed on, automatically overflows on import
+    # which page the habit is displayed on, automatically overflows on import
+    page: int = 0
 
     entries: list[StreakEntry] = field(default_factory=list)
 
