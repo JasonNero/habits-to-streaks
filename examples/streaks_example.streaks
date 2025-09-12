@@ -1,0 +1,88 @@
+{
+    "app": "11.0.0.26002",
+    "categories": [],
+    "desc": "Initiated from Manage Data screen",
+    "tasks": [
+        {
+            "cat": [],
+            "dp": {
+                "or": 0
+            },
+            "e": {
+                "uab": {
+                    "t": "automatic"
+                }
+            },
+            "fdgd": 0,
+            "fdow": 127,
+            "fm": 0,
+            "ftpd": 1,
+            "i": "ic_pen_quill",
+            "id": "01D26207-B0D5-4906-AC75-4D3606074A1E",
+            "log": [
+                {
+                    "d": 20250911,
+                    "id": "5180E006-2EAB-4223-88BB-3D22A7964D21",
+                    "p": 0,
+                    "t": 5,
+                    "ts": "2025-09-12T13:53:20Z",
+                    "tz": "Europe\/Berlin"
+                },
+                {
+                    "d": 20250912,
+                    "id": "02291077-BB0D-4A6A-908E-D386C713EA08",
+                    "p": 0,
+                    "t": 1,
+                    "ts": "2025-09-12T14:54:55Z",
+                    "tz": "Europe\/Berlin"
+                }
+            ],
+            "n": false,
+            "ns": {
+                "arts": false,
+                "bm": "incomplete",
+                "cn": true,
+                "cs": "islands",
+                "cts": false,
+                "lads": "y",
+                "mr": 0,
+                "pcn": true,
+                "pcs": "islands",
+                "pcts": false,
+                "r": [
+                    {
+                        "d": 127,
+                        "id": "2460E70F-BCE7-4BAC-B605-BF6DC2942ECE",
+                        "t": 77400,
+                        "ty": "tod",
+                        "tz": "owner"
+                    },
+                    {
+                        "d": 127,
+                        "id": "E98A8333-2354-407B-A285-F95018C1B353",
+                        "t": 59100,
+                        "ty": "todm",
+                        "tz": "owner"
+                    }
+                ],
+                "rs": "islands",
+                "rt": "custom",
+                "tns": "islands",
+                "tnts": false
+            },
+            "nt": [],
+            "pg": 0,
+            "sow": 2,
+            "st": "N",
+            "t": "Journaling",
+            "tf": "Journaling",
+            "ts": "2025-09-11T10:44:55Z",
+            "typ": 1,
+            "typd": 20250912,
+            "tz": "Europe\/Berlin"
+        }
+    ],
+    "timestamp": "2025-09-12T14:55:04Z",
+    "type": "manual",
+    "version": 2
+}

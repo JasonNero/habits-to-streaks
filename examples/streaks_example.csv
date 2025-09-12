@@ -1,0 +1,4 @@
+task_id,title,icon,entry_type,entry_date,entry_timestamp,entry_timezone,quantity,page,notes
+01D26207-B0D5-4906-AC75-4D3606074A1E,Journaling,ic_pen_quill,missed_auto,20250911,2025-09-12T13:53:20Z,Europe/Berlin,0.0,0,
+01D26207-B0D5-4906-AC75-4D3606074A1E,Journaling,ic_pen_quill,completed_manually,20250912,2025-09-12T13:53:20Z,Europe/Berlin,0.0,0,
+01D26207-B0D5-4906-AC75-4D3606074A1E,Journaling,ic_pen_quill,completed_manually,20250913,2025-09-13T17:05:34Z,Europe/Berlin,0.0,0,
