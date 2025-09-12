@@ -1,6 +1,6 @@
 [project]
 name = "habits-to-streaks"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
     { name = "Jason Schuehlein", email = "schuehlein@hdm-stuttgart.de" }
 ]
