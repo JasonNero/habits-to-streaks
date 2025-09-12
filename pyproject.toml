@@ -1,0 +1,8 @@
+[project]
+name = "habits-to-streaks"
+version = "0.1.0"
+author = "Jason Schuehlein"
+description = "Convert habit data from *Habits* app to *Streaks* app format."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
